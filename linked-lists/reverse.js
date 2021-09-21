@@ -15,20 +15,23 @@ iterateLinkedList = (head) => {
         console.log(currentNode.value);
         currentNode = currentNode.next;
     }
+
+    return null;
 }
 
 reverseLinkedList = (head) => {
     let currentNode = head;
-    let previousNode = null;
+    let prev = null;
 
     while (currentNode) {
-        console.log(currentNode.value);
-        let reverseNode = currentNode;
-        currentNode = currentNode.next;
-        reverseNode.next = previousNode;
+        let next = currentNode.next;
+        currentNode.next = prev;
+
+        prev = currentNode;
+        currentNode = next;
     }
 
-    return previousNode;
+    return prev;
 }
 
 let head = new Node(1);
